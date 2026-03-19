@@ -467,5 +467,9 @@ p{
     font-family: "Times New Roman",Times, serif;
     
 }
-  
+
+#kubs {
+    max-width: 100%; 
+    transition: width 0.3s ease; 
+}
  
