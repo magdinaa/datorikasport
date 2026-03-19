@@ -48,6 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                           <p class="cardText"> Mana logo versija bija šāda:</p>
                           <br>
                           <img src="images/logo.jpg.png" alt=" RUMBA logo" width="300">
+                         <br>
                          <img id="kubs" src="images/3Dkubs.png" style="width:300px; cursor:pointer;" onclick="onClick(this)" alt="Tinkercad veidotais kubs">
                          <p id="kubaparaksts" style="display:none; text-align:center; color:#555;">Tinkercad veidotais kubs (palielināts skats)</p>
                           <p class="cardText"> Pēc tam grupā izlēmām, kuru logo izmantot uz kuba virsmas. Tad sākās darbs aplikācijā Tinckercad. Kad viss kubs bija izveidots, sākām to printēt. Izprintētā kuba malas atseviški noslīpējām un salikām kopā. Procesu var apskatīt apakšā redzamajā video.</p>
@@ -61,4 +62,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                                    </iframe>
                      </div>
                      <div class="strip" aria-hidden="true"></div>
+                      
+                      <script>
+        
+        function onClick(element) {
+            var paraksts = document.getElementById("kuba-paraksts");
+            
+          
+            if (element.style.width === "300px") {
+                element.style.width = "100%"; 
+                if(paraksts) paraksts.style.display = "block"; 
+            } else {
+                element.style.width = "300px"; 
+                if(paraksts) paraksts.style.display = "none"; 
+            }
+        }
+
+        
+        document.getElementById('menu-toggle').onclick = function() {
+            var nav = document.getElementById('nav-links');
+            if (nav.style.display === 'block') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'block';
+            }
+        };
+    </script>
                    
