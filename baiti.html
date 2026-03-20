@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Datu aprēķins</title>
+    <style>
+        
+        .box {
+            border: 1px solid black;
+            padding: 20px;
+            width: 550px;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+        }
+        input[type="number"], input[type="text"] {
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <form id="kalkulators">
+            <label>Aprēķināt cik daudz informācijas var lejupielādēt</label><br>
+            
+            <input type="number" id="sekundes" placeholder="0" onclick="this.form.reset()"> 
+            sekundēs, ja interneta ātrums ir 25 Mbps.
+            
+            <br><br>
+            <label>Atbilde</label><br>
+            <input type="text" id="rezultats" readonly>
+            
+            <input type="radio" name="unit" value="KiB" onclick="aprekinat()"> KiB
+            <input type="radio" name="unit" value="KB" onclick="aprekinat()"> KB
+        </form>
+    </div>
+
+    <script>
+        
+        function aprekinat() {
+            
+            let s = document.getElementById('sekundes').value;
+            
+            
+            let unitElement = document.querySelector('input[name="unit"]:checked');
+            
+            if (!unitElement || s === "" || s <= 0) {
+                alert("Lūdzu, vispirms ievadiet sekundes!");
+                return;
+            }
+
+            let unit = unitElement.value;
+
+           
+            let baitiSekunde = (25 * 1000000) / 8;
+            let kopējieBaiti = baitiSekunde * s;
+            let rezultats;
+
+            if (unit === "KB") {
+                
+                rezultats = kopējieBaiti / 1000;
+            } else {
+               
+                rezultats = kopējieBaiti / 1024;
+            }
+
+            
+            document.getElementById('rezultats').value = rezultats.toFixed(2) + " " + unit;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
