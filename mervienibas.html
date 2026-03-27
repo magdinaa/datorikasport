@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Informācijas mērvienības</title>
+    <style>
+        /* 9.a - Fona attēls visai lapai */
+        body {
+            background-image: url('images/cipari.jpg');
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        /* 9.b un 9.c - Formas stils */
+        form {
+            background-color: rgb(220, 220, 0); /* 220 sarkans, 220 zaļš, 0 zils dod dzeltenīgu toni */
+            padding: 20px;
+            font-size: 20px; /* Teksta izmērs 20px */
+            width: fit-content;
+            border: 1px solid #ccc;
+        }
+
+        h1 {
+            font-family: "Times New Roman", serif;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            font-size: 18px;
+            padding: 2px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Informācijas daudzuma mērvienības</h1>
+
+    <form id="calcForm">
+        
+        <div class="row">
+            <input type="text" id="gbInput" value="2"> GB=
+        </div>
+
+        <div class="row">
+            <button type="button" onclick="convertMB()">Izteikt megabaitos</button>
+            <input type="text" id="mbResult" readonly> MB
+        </div>
+
+        <div class="row">
+            <button type="button" onclick="convertMiB()">Izteikt mibibaitos</button>
+            <input type="text" id="mibResult" readonly> MiB
+        </div>
+
+    </form>
+
+    <script>
+        // 8. uzdevums: Reakcija uz klikšķi un aprēķini
+        
+        function convertMB() {
+            const gb = parseFloat(document.getElementById('gbInput').value);
+            if (!isNaN(gb)) {
+                // MB (SI sistēma): 1 GB = 1000 MB
+                document.getElementById('mbResult').value = gb * 1000;
+            }
+        }
+
+        function convertMiB() {
+            const gb = parseFloat(document.getElementById('gbInput').value);
+            if (!isNaN(gb)) {
+                // MiB (Binārā sistēma): 1 GB = 1024^3 baiti, 1 MiB = 1024^2 baiti
+                // Parasti GB uz MiB pārrēķina: (GB * 1024 * 1024 * 1024) / (1024 * 1024) = GB * 1024
+                document.getElementById('mibResult').value = (gb * 1024).toFixed(0);
+            }
+        }
+    </script>
+
+</body>
+</html>

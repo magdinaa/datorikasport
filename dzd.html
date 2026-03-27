@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaidot dzimšanas dienu</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        input[type="text"] { margin-bottom: 10px; width: 80px; }
+    </style>
+</head>
+<body>
+
+    <h1>Gaidot dzimšanas dienu..</h1>
+    <hr>
+
+    <form name="forma">
+        <p><i>Ievadi pilnu datumu, kad Tev būs tuvākā dzimšanas diena</i></p>
+        
+        gads <input type="text" name="gads"> 
+        mēnesis <input type="text" name="menesis"> 
+        diena <input type="text" name="datums">
+        <br>
+
+        <input type="button" value="Aprēķināt dienu skaitu līdz dzimšanas dienai" onclick="aprekinat();">
+        <br><br>
+
+        Līdz svētkiem atlikušas 
+        <input type="text" name="rezultats" readonly> 
+        dienas : ))
+    </form>
+
+    <script>
+        function aprekinat() {
+            // Iegūstam vērtības
+            var g = document.forma.gads.value;
+            var m = document.forma.menesis.value;
+            var d = document.forma.datums.value;
+
+            // Pārbaudām vai lauki nav tukši
+            if(g == "" || m == "" || d == "") {
+                alert("Lūdzu, aizpildi visus laukus!");
+                return;
+            }
+
+            var galaDatums = new Date(g, m - 1, d);
+            var sodiena = new Date();
+            
+            // Aprēķins
+            var starpiba = galaDatums.getTime() - sodiena.getTime();
+            var dienuSkaits = Math.ceil(starpiba / (1000 * 60 * 60 * 24));
+
+            if (dienuSkaits < 0) {
+                document.forma.rezultats.value = "0";
+            } else {
+                document.forma.rezultats.value = dienuSkaits;
+            }
+        }
+    </script>
+
+</body>
+</html>
