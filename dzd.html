@@ -31,12 +31,12 @@
 
     <script>
         function aprekinat() {
-            // Iegūstam vērtības
+            
             var g = document.forma.gads.value;
             var m = document.forma.menesis.value;
             var d = document.forma.datums.value;
 
-            // Pārbaudām vai lauki nav tukši
+            
             if(g == "" || m == "" || d == "") {
                 alert("Lūdzu, aizpildi visus laukus!");
                 return;
@@ -45,7 +45,7 @@
             var galaDatums = new Date(g, m - 1, d);
             var sodiena = new Date();
             
-            // Aprēķins
+            
             var starpiba = galaDatums.getTime() - sodiena.getTime();
             var dienuSkaits = Math.ceil(starpiba / (1000 * 60 * 60 * 24));
 

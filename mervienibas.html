@@ -73,12 +73,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     </form>
 
     <script>
-        // 8. uzdevums: Reakcija uz klikšķi un aprēķini
+        
         
         function convertMB() {
             const gb = parseFloat(document.getElementById('gbInput').value);
             if (!isNaN(gb)) {
-                // MB (SI sistēma): 1 GB = 1000 MB
+                
                 document.getElementById('mbResult').value = gb * 1000;
             }
         }
@@ -86,8 +86,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         function convertMiB() {
             const gb = parseFloat(document.getElementById('gbInput').value);
             if (!isNaN(gb)) {
-                // MiB (Binārā sistēma): 1 GB = 1024^3 baiti, 1 MiB = 1024^2 baiti
-                // Parasti GB uz MiB pārrēķina: (GB * 1024 * 1024 * 1024) / (1024 * 1024) = GB * 1024
+               
+                
                 document.getElementById('mibResult').value = (gb * 1024).toFixed(0);
             }
         }
